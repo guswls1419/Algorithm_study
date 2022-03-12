@@ -77,6 +77,55 @@ let e = 20
 let f = 4
 console.log(solution(d,e,f))
 
+//13. 2016년 요일 구하기
+function solution(a, b) {
+    let arr = ['SUN','MON','TUE','WED','THU','FRI','SAT']
+    let date = new Date(`2016-${a}-${b}`)
+    let day = date.getDay()
+    return arr[day];
+    // day값이 2 임으로, arr 배열의 2번째 값인 'TUE'가 반환된다.
+}
+
+//Date() : 날짜와 시간(년, 월, 일, 시, 분, 초, 밀리초)을 위한 메서드를 제공하는 빌트인 객체, 생성자 함수
+//getDay() : 주어진 날짜의 현지 시간 기준 요일을 반환하는 메서드, 0은 일요일을 나타낸다.
+
+let a = 5
+let b = 24
+console.log(solution(a,b))
+
+//14. 나누어 떨어지는 숫자 배열
+function solution(arr, divisor) {
+    var answer = [];
+    for (let i =0; i<arr.length; i++){
+    //arr 배열의 개수만큼 반복
+        if(arr[i] % divisor == 0){
+        // arr의i번째 값이 divisor로 나눴을때 나머지값이 0 이라면
+            answer.push(arr[i]);
+            // answer에 arr[i]번째 값을 push한다.
+        }
+    }
+    return answer.length < 1 ? [-1] : answer.sort((a,b) => a-b);
+}// 정렬할때 요소를 문자열로 취급하기 때문에 비교함수를 사용해야함.
+//a,b에 두요소를 전달하고, a-b로 크기를 비교(a가 b보다 크면 양수,a가 b보다 작으면 음수)
+
+
+let a = [5, 9, 7, 10]
+let b = 5
+console.log(solution(a,b))
+
+//15.내적
+function solution(a, b) {
+    var answer = 0;
+    for (let i = 0; i<a.length; i++){
+    //a의 길이만큼 반복해서 더한다.
+        answer += a[i]*b[i]; //내적
+    }
+    return answer;
+}
+//내적 : 두 배열의 같은 인덱스를 곱해서 전체 배열까지 더해주는 것
+//배열의 사이즈가 같기 때문에 한 배열의 크기만큼 반복문을 실행.
+//각 위치의 값을 곱하며 순서대로 더함.
+
 
 //16.문자열 내 p와 y의 개수
 //방법.01 나의 풀이법
@@ -109,5 +158,4 @@ function numPY(s){
 
 var s = "pPoooyY";
 console.log(numPY(s))
-
 

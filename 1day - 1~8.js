@@ -58,7 +58,8 @@ let dd = 3
 let ee = 5
 console.log(solution(dd,ee))
 
-//05.두 정수 사이의 합
+//05.문자열을 정수로 바꾸기
+
 function solution(s) {
     var answer = parseInt(s); //parseInt() :문자를 숫자로변환시켜주는 메소드
     return answer;
