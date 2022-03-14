@@ -22,8 +22,15 @@ let s = ["Jane", "Kim"]
 console.log(solution(s))
 
 //19.수박수박수박수
+function solution(n) {
+    var answer = '수박'.repeat(n/2) + (n % 2 == 1 ? '수' : '')
+  //'수박'을 n/2만큼 반복해준다. + n을 2로 나눴을때 나머지값이 1이면 '수'를 붙인다.
+    return answer;
+}
+let s = 7
+console.log(solution(s))
 
-//2. 완주하지못한 선수
+//20. 완주하지못한 선수
 function solution(participant, completion) {
     participant.sort()
     completion.sort()
@@ -43,11 +50,62 @@ let b = ["eden", "kiki"]
 
 console.log(solution(a,b))
 
+//21.이상한 문자만들기
+function solution(s) {
+    var answer = '';
+    var a = s.split(" ")
+  // s를 split을 이용해 배열로 만들다. ex)['try','hello','world']
+    for(let i =0; i<a.length; i++){ // a의 길이만큼 반복
+        for(let j =0; j<a[i].length; j++){//a[i]의 길이만큼 반복
+            if(j%2 ==0){//j를 2로 나눴을때 나머지값이 0
+                answer = answer + a[i][j].toUpperCase();//대문자
+            }else{
+                answer = answer + a[i][j].toLowerCase();//소문자
+            }
+        }
+        if(i<a.length-1){\
+       //-1은 try hello world 사이의 공백 2를 넣어주기위해 붙인다.
+            answer = answer+ " "
+        }
+    }
+    return answer;
+}
 
+let a = "try hello world"
+console.log(solution(a))
 
+//22.자릿수 더하기
+//방법.01
+function solution(n){
+    var answer = 0;
+    var a = n+"".split("") // 문자열로 바꾼뒤 배열을만들어줌
+    for (let i = 0; i<a.length; i++){//a개수만큼 반복해줌
+        answer += Number(a[i]);
+   //a[i]개수만큼 더해서 숫자도 바꾼뒤answer로 보낸다
+    }
+    return answer;
+}
+ var a = 123
+    console.log(solution(a))
 
+//방법.02
+function solution(n){
+    return (n+"").split("").reduce((a,b)=>a+parseInt(b),0)
+// 문자열로변경,배열만든후,reduce(누산기)와 화살표함수를 사용하여 숫자로 변환해준 값을 반복해서 더한다.
+}
+ var a = 123
+    console.log(solution(a))
 
+//23.자연수 뒤집어 배열로 만들기
+function solution(n) {
+    return (n+"").split("").reverse().map(n=>parseInt(n));
+}// 문자열로변경,배열만든후 reverse메서드로 배열을 거꾸로 돌려준다.
+// map메서드를 이용하여,각 배열을 문자에서 숫자로 변환시켜준다.
 
+let a = 12345
+console.log(solution(a))
+
+//- reverse() :  배열의 순서를 반전하는 메서드. 첫 번째 요소는 마지막 요소가 되며 마지막 요소는 첫 번째 요소가 된다
 
 
 //24. 정수 내림차순으로 배치
@@ -102,13 +160,52 @@ function solution(n) {
 let a = 118372
 console.log(solution(a))
 
+//25.정수 제곱근 판별
+function solution(n) {
+    return Math.sqrt(n) === parseInt(Math.sqrt(n))  ? 
+    // n의 제곱근과 정수 n의 제곱근이 같으면,  
+    (Math.sqrt(n)+1)*(Math.sqrt(n)+1) : -1;
+}// (n제곱근 +1)에 제곱근을 반환한다. 틀리면 -1을 반환한다.
+
+let a = 121
+console.log(solution(a))
+//-Math.sqrt() 함수는 숫자의 제곱근을 반환한다.
 
 
+//26.제일 작은 수 제거하기
+function solution(arr) {
+    if(arr.length ===1){
+        return [-1];
+    }// arr 길이가 1과 같다면 -1을 반환
+    let min = arr.reduce((arr,crr)=>{
+        return Math.min(arr,crr);
+    })// arr의 가장 작은값을 reduce로 찾아냄.
+    
+    let minIndex = arr.indexOf(min)
+  // 최소값이 들어있는 값의 인덱스 번호를 추출
+     arr.splice(minIndex,1)
+  //arr에서 최소값을 제거해준다.
+    return arr;
+}
+//splice() : 메서드는 배열의 기존 요소를 삭제 또는 교체하거나 새 요소를 추가하여 배열의 내용을 변경한다.
 
 
-
-
-
+//27.콜라츠 추측
+function solution(num) {
+    var answer = 0;
+    
+    for(var i = 0; i < 500; i++) { // 500번까지만 반복
+        if(num != 1) { // num이 1이 아닌 경우
+            num = num % 2 == 0 ? num / 2 : num * 3 + 1; 
+          //num은 짝수일경우 나누기2, 홀수일경우 *3+1 
+          //(num이 1이 될때까지 계속 반복)
+          
+        } else { // 1인 경우
+            return answer = i; // 현재 횟수를 출력
+        }
+    }    
+    return answer = -1; // 500번을 실행했지만 return된 값이 없는 경우
+}
 
 // 28. 하샤드 수
 // 방법.01 내가한 풀이
