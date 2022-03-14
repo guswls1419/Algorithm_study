@@ -31,7 +31,7 @@ let bb = 2
 console.log(solution(aa))
 
 
-//03.짝수와 홀수
+//03.가운데글자 가져오기
 function solution(s) {
     var answer = '';
     if (s.length % 2 ==0){// s가 짝수일때
