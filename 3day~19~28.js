@@ -171,6 +171,15 @@ let a = 121
 console.log(solution(a))
 //-Math.sqrt() 함수는 숫자의 제곱근을 반환한다.
 
+// 다른 풀이법
+function solution(n) {
+    return n%Math.sqrt(n)==0 ? Math.pow((Math.sqrt(n)+1),2) : -1
+}
+
+function solution(n) {
+    return n%Math.sqrt(n)==0 ? (Math.sqrt(n)+1)**2 : -1
+}
+
 
 //26.제일 작은 수 제거하기
 function solution(arr) {

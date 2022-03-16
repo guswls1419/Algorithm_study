@@ -1,4 +1,2 @@
-
-    var answer = [4,3,2,1];
-    var a = Math.min(answer)
-    console.log(a)
+num = 6 % 2==0 ? 6/2 : 6*3+1;
+console.log(num)
