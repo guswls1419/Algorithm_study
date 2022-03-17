@@ -29,6 +29,11 @@ function solution(n) {
 }
 let s = 7
 console.log(solution(s))
+//02 새로운 풀이법
+function solution(n) {
+    return '수박'.repeat(n).substring(0,n)
+}
+//.substring() : string 객체의 시작 인덱스로 부터 종료 인덱스 전 까지 문자열의 부분 문자열을 반환하는 메소드
 
 //20. 완주하지못한 선수
 function solution(participant, completion) {
@@ -36,9 +41,8 @@ function solution(participant, completion) {
     completion.sort()
   // 각 배열 기본정렬순서로 정렬시킨다.
   // 정렬시키지않으면 밑에서 비교값을 찾을때 같은값이 아니라고 인식하기때문에 기본정렬순서로 정렬시켜주어야한다.
-    let answer = participant.find((run,index)=>run !== completion[index])
+    return participant.find((run,index)=>run !== completion[index])
   //find함수를 이용하여 찾을요소의 인덱스와, completion의 인덱스 중 같지않은 값을 구한다.
-    return answer;
 }
 //fine() : 배열에서 특정 값을 찾는 조건을 callback 함수를 통해 전달하여,조건에 맞는 값 중 첫번째 값을 리턴한다. 만약 배열에 조건을 만족하는 값이 없으면 undefined를 리턴한다.
 //arr.find(callback(element[, index[, array]])[, thisArg])
@@ -96,6 +100,11 @@ function solution(n){
  var a = 123
     console.log(solution(a))
 
+//방법 03
+function solution(n){
+    return (n+"").split("").map((n,b)=> parseInt(n)).reduce((a,b)=>a+b)
+}
+
 //23.자연수 뒤집어 배열로 만들기
 function solution(n) {
     return (n+"").split("").reverse().map(n=>parseInt(n));
@@ -106,6 +115,7 @@ let a = 12345
 console.log(solution(a))
 
 //- reverse() :  배열의 순서를 반전하는 메서드. 첫 번째 요소는 마지막 요소가 되며 마지막 요소는 첫 번째 요소가 된다
+
 
 
 //24. 정수 내림차순으로 배치
@@ -160,6 +170,12 @@ function solution(n) {
 let a = 118372
 console.log(solution(a))
 
+//03. 새로운 풀이법
+function solution(n) {
+ return Number((n+"").split("").sort((a,b) => b - a).join(''))
+}
+
+
 //25.정수 제곱근 판별
 function solution(n) {
     return Math.sqrt(n) === parseInt(Math.sqrt(n))  ? 
@@ -197,6 +213,11 @@ function solution(arr) {
     return arr;
 }
 //splice() : 메서드는 배열의 기존 요소를 삭제 또는 교체하거나 새 요소를 추가하여 배열의 내용을 변경한다.
+
+//02. 새로운 풀이법
+function solution(arr) {
+    return arr.splice(arr.indexOf(Math.min(...arr)),1) ? (arr.length ? arr : [-1] ): false;
+}
 
 
 //27.콜라츠 추측
