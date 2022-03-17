@@ -30,6 +30,10 @@ let aa = 5
 let bb = 2
 console.log(solution(aa))
 
+//방법 02. 한줄풀이
+function solution(num) {
+    return num % 2 == 0 ? "Even" : "Odd";
+}
 
 //03.가운데글자 가져오기
 function solution(s) {
@@ -45,6 +49,11 @@ function solution(s) {
 }
 let cc = "abcde"
 console.log(solution(cc))
+
+//방법 02. 한줄풀이
+function solution(s) {
+    return s.length % 2 == 0 ? s[s.length/2-1]+s[s.length/2] : s[Math.floor(s.length/2)];
+}
 
 //04.두 정수 사이의 합
 function solution(a, b, s=0) {
@@ -141,3 +150,4 @@ let ii = [1,2,3,4]
 console.log(solution(ii)) 
 //reduce() :배열의 각 요소에 대해 주어진 리듀서 함수를 실행하고, 하나의 결과값을 반환 하는 메서드
 // (a, b) => a + b는 인수 a와 b를 받는 함수로 (a, b) => a + b는 실행되는 순간 표현식 a + b를 평가하고 그 결과를 반환한다.
+
