@@ -1,2 +1,5 @@
-num = 6 % 2==0 ? 6/2 : 6*3+1;
-console.log(num)
+let numbers = [1,2,3,4,6,7,8,0]
+
+let a = !numbers.includes(numbers)
+
+console.log(a)

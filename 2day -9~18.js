@@ -159,3 +159,11 @@ function numPY(s){
 var s = "pPoooyY";
 console.log(numPY(s))
 
+//방법 03. 새로운 나의 풀이법
+function solution(s){
+    var pNum = (s+"").toUpperCase().split("P").length
+    var yNum = (s+"").toUpperCase().split("Y").length
+    
+   return (pNum == yNum) || (pNum==0 && yNum == 0) ? true : false
+}
+

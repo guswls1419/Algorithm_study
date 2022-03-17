@@ -215,6 +215,20 @@ function solution(num) {
     }    
     return answer = -1; // 500번을 실행했지만 return된 값이 없는 경우
 }
+//방법 2. 새로운 풀이법
+function solution(num) {
+    var answer = 0;
+    while(num !=1 && answer != 500){
+      //와일문은 조건이 참이될때까지 반복한다.
+      // num이 1이 아닐때까지, 그리고 answer가 500이 아닐때까지 반복한다.
+        num % 2==0 ? num = num/2 : num = num*3+1 
+      // num= -> num을 지칭해주지않으면 값이 쌓이지않기때문에 꼭 num을 지칭해주어야 한다.
+      //num이 짝수라면 num은 나누기 2, 아니면 *3+1을해서
+      answer++ // answer에 더해줘라.(누산기 개념)
+    }
+      return num == 1 ? answer : -1;
+} // num이 1이라면 answer를 반환, 아니라면 -1을 반환.
+
 
 // 28. 하샤드 수
 // 방법.01 내가한 풀이
